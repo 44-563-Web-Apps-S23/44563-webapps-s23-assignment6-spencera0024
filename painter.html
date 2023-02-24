@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Painter by Spencer Anderson</title>
+</head>
+ 
+<body>
+
+<h2>Painter entry Spencer Anderson</h2>
+
+<form>
+    <label for="form1_password">The hidden painter name  </label>
+    <input type ="password" id="form1_password" name="form1_password" value="Monet"> <br>
+
+    <label for="form1_name">Guess the painter </label>
+    <input type ="text" id="form1_name" name="form1_name"> <br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script>
+
+var good = 0
+var oops = 0
+
+function checkPainter() {
+    pwd = document.getElementById("form1_password").value 
+    painter = document.getElementById("form1_name").value 
+
+    if(pwd == painter) {
+        good++
+        alert("You got it right")
+    } else {
+        oops++
+        alert("Sorry")
+    }
+
+    out = document.getElementById("result")
+
+    out.innerHTML = "Good: " + good + " Oops: " + oops
+}
+
+</script>
+
+</body>
+</html> 
