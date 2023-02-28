@@ -46,5 +46,34 @@ function checkPainter() {
 
 </script>
 
+<div class="container">
+    <img id="image" src="plant image 1.jpg" width="100" height="100" onclick="selectImage()">
+</div>
+
+<script>
+
+    var useImage = 1
+
+    function selectImage() {
+        switch(useImage) {
+            case 1: 
+                useImage = 2
+                document.getElementById("image").src = "plant image 2.jpg"
+                break
+
+            case 2:
+                useImage = 3
+                document.getElementById("image").src = "plant image 3.jpg"
+                break
+
+            case 3:
+                useImage = 1
+                document.getElementById("image").src = "plant image 1.jpg"
+                break
+        }      
+    }
+
+</script>
+
 </body>
 </html> 
