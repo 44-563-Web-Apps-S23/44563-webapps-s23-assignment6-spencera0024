@@ -22,6 +22,19 @@
 
 <p id="result">This text will be replaced </p>
 
+<form>
+    <input type="radio" name="number" id="mean" value="average" onclick="chooseOp()">
+    <label for="mean">Average</label>
+    
+    <input type="radio" name="number" id="max" value="maximum" onclick="chooseOp()">
+    <label for="max">Maximum</label>
+
+    <input type="radio" name="number" id="min" value="minimum" onclick="chooseOp()">
+    <label for="min">Minimum</label>
+</form>
+
+<p id="result2">This text will be replaced </p>
+
 <script> 
 function convert() {
     base = document.getElementById("form1_amount").value 
@@ -36,19 +49,44 @@ function convert() {
         base *= 2
     }
 }
-/* function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+
+function chooseOp() {
+    base = document.getElementById("form1_amount").value
+    conversion = document.getElementById("form1_conv").value
+    average = document.getElementById("mean").checked
+    max = document.getElementById("max").checked
+    min = document.getElementById("min").checked
+    out = document.getElementById("result2")
+
+    base = Number(base)
+    conversion = Number(conversion)
     
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    if (average == true) {
+        let sum = base + conversion
+        sum /= 2
+        out.innerHTML = "average of " + base + " and " + conversion + " is " + sum
     }
-} */
+    else if (max == true) {
+        let largestNum = 0
+        if (base > conversion) {
+            largestNum = base
+        }
+        else {
+            largestNum = conversion
+        }
+        out.innerHTML = "max of " + base + " and " + conversion + " is " + largestNum
+    }
+    else if (min == true) {
+        let smallestNum = 0
+        if (base > conversion) {
+            smallestNum = conversion
+        }
+        else {
+            smallestNum = base
+        }
+        out.innerHTML = "min of " + base + " and " + conversion + " is " + smallestNum
+    }
+}
 </script>
 
 </body>
