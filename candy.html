@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candy by Spencer Anderson</title>
+</head>
+ 
+<body>
+
+<h2>Spencer Anderson chooses candy</h2>
+
+<form>
+    <input type="checkbox" id="dark" value="True">
+    <label for="dark">Dark Chocolate</label> <br> 
+
+    <input type="checkbox" id="nuts" value="True">
+    <label for="nuts">Nuts</label> <br>
+
+    <input type="checkbox" id="chewy" value="False">
+    <label for="chewy">Chewy</label> <br> 
+
+    <input type="button" onclick="selectBox()" value="Select a box">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+let my_candy_box = {}
+
+function selectBox() {
+    my_candy_box = {}
+    dark = document.getElementById("dark").checked
+    nuts = document.getElementById("nuts").checked
+    chewy = document.getElementById("nuts").checked
+    out = document.getElementById("result")
+
+    if (dark == true) {
+        my_candy_box.dark = "True"
+    }
+    else {
+        my_candy_box.dark = "False"
+    }
+
+    if (nuts == true) {
+        my_candy_box.nuts = "True"
+    }
+    else {
+        my_candy_box.nuts = "False"
+    }
+
+    if (chewy == true) {
+        my_candy_box.chewy = "True"
+    }
+    else {
+        my_candy_box.chewy = "False"
+    }
+    
+    out.innerHTML = JSON.stringify(my_candy_box)
+    console.log(my_candy_box)
+}
+
+</script>
+
+</body>
+</html> 
